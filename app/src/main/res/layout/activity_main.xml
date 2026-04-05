@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F0F5"
+    android:clipChildren="false">
+
+    <!-- Текст адреса доставки -->
+    <TextView
+        android:id="@+id/deliveryAddressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp"
+        android:fontFamily="serif"
+        android:text="@string/krasnoyarsk_address"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Линия под адресом -->
+    <View
+        android:layout_width="232dp"
+        android:layout_height="3dp"
+        android:layout_below="@id/deliveryAddressText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        android:background="#C04C4C" />
+
+    <!-- Карточка погоды -->
+    <View
+        android:id="@+id/weatherCard"
+        android:layout_width="397dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/weather_card_bg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/weatherCard"
+        android:layout_alignTop="@id/weatherCard"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="serif"
+        android:text="@string/weather_for_day"
+        android:textColor="#F4F0F5"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="65dp"
+        android:layout_alignTop="@id/weatherCard"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="13dp"
+        android:layout_toStartOf="@+id/tempText"
+        android:src="@drawable/cloud"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:id="@+id/tempText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/weatherCard"
+        android:layout_alignTop="@id/weatherCard"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="sans-serif"
+        android:text="-15°C"
+        android:textColor="#000000"
+        android:textSize="36sp" />
+
+    <TextView
+        android:layout_width="168dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/weatherCard"
+        android:layout_alignTop="@id/weatherCard"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="serif"
+        android:text="@string/better_stay_home"
+        android:textColor="#F4F0F5"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+    <!-- Строка поиска -->
+    <RelativeLayout
+        android:id="@+id/searchBar"
+        android:layout_width="391dp"
+        android:layout_height="52dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="232dp"
+        android:background="@drawable/search_bar_bg"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp">
+
+        <ImageView
+            android:id="@+id/searchIcon"
+            android:layout_width="28dp"
+            android:layout_height="27dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/search"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@id/searchIcon"
+            android:fontFamily="serif"
+            android:text="@string/find_restaurant_or_dish"
+            android:textColor="#897C7C"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <!-- Список категорий -->
+    <LinearLayout
+        android:id="@+id/categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:orientation="horizontal"
+        android:clipChildren="false">
+
+        <FrameLayout
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:background="@drawable/card_category_bg"
+            android:clipChildren="false">
+
+            <ImageView
+                android:layout_width="107dp"
+                android:layout_height="107dp"
+                android:layout_gravity="center"
+                android:src="@drawable/burger"
+                android:contentDescription="@null"
+                android:layout_marginTop="-4dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginStart="40dp"
+            android:background="@drawable/card_category_bg"
+            android:clipChildren="false">
+
+            <ImageView
+                android:layout_width="109dp"
+                android:layout_height="63dp"
+                android:layout_gravity="center"
+                android:src="@drawable/pizza"
+                android:contentDescription="@null"
+                android:layout_marginTop="-8dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginStart="40dp"
+            android:background="@drawable/card_category_bg"
+            android:clipChildren="false">
+
+            <ImageView
+                android:layout_width="123dp"
+                android:layout_height="84dp"
+                android:layout_gravity="center"
+                android:src="@drawable/sushi"
+                android:contentDescription="@null"
+                android:layout_marginTop="-6dp" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/restaurantsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categories"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="21dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/restaurants"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <!-- Прокручиваемый список ресторанов -->
+    <ScrollView
+        android:id="@+id/restaurantsScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/restaurantsTitle"
+        android:layout_above="@+id/bottomNav"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Карточка Мистер Бургер -->
+            <FrameLayout
+                android:id="@+id/misterBurgerCard"
+                android:layout_width="390dp"
+                android:layout_height="119dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/card_background_rounded"
+                android:clipToOutline="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/mrburger"
+                        android:contentDescription="@null" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:shadowColor="#000000"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:shadowRadius="4"
+                            android:text="@string/mister_burger"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:shadowColor="#000000"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:shadowRadius="4"
+                            android:text="30-35 мин"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="21dp"
+                            android:layout_height="21dp"
+                            android:src="@drawable/star"
+                            app:tint="#FFD700"
+                            android:contentDescription="@null" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="serif"
+                            android:text="4.8"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </FrameLayout>
+
+            <!-- Карточка Пиццамания -->
+            <FrameLayout
+                android:layout_width="390dp"
+                android:layout_height="119dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/card_background_rounded"
+                android:clipToOutline="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/pizzamania"
+                        android:contentDescription="@null" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:shadowColor="#000000"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:shadowRadius="4"
+                            android:text="@string/pizzamania"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:shadowColor="#000000"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:shadowRadius="4"
+                            android:text="40-50 мин"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="21dp"
+                            android:layout_height="21dp"
+                            android:src="@drawable/star"
+                            app:tint="#FFD700"
+                            android:contentDescription="@null" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="serif"
+                            android:text="4.9"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </FrameLayout>
+
+            <!-- Карточка Сушимастер -->
+            <FrameLayout
+                android:layout_width="390dp"
+                android:layout_height="119dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/card_background_rounded"
+                android:clipToOutline="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/sushimaster"
+                        android:contentDescription="@null" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:shadowColor="#000000"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:shadowRadius="4"
+                            android:text="@string/sushimaster"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:shadowColor="#000000"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:shadowRadius="4"
+                            android:text="35-50 мин"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="21dp"
+                            android:layout_height="21dp"
+                            android:src="@drawable/star"
+                            app:tint="#FFD700"
+                            android:contentDescription="@null" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="serif"
+                            android:text="4.6"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Нижняя навигация -->
+    <RelativeLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="390dp"
+        android:layout_height="46dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/bottom_nav_bg">
+
+        <ImageView
+            android:id="@+id/homeButton"
+            android:layout_width="36dp"
+            android:layout_height="33dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="33dp"
+            android:src="@drawable/home"
+            app:tint="#C04C4C"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/cartButton"
+            android:layout_width="36dp"
+            android:layout_height="33dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/cart"
+            app:tint="#C04C4C"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/profileButton"
+            android:layout_width="36dp"
+            android:layout_height="33dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="33dp"
+            android:src="@drawable/profile"
+            app:tint="#C04C4C"
+            android:contentDescription="@null" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

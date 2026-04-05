@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F0F5">
+
+    <TextView
+        android:id="@+id/cartTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:fontFamily="serif"
+        android:text="Моя корзина"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/restaurantHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cartTitle"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="serif"
+        android:text="Мистер Бургер\n0 ₽ · 30-35 мин"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <!-- Динамический список товаров -->
+    <ScrollView
+        android:id="@+id/cartScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/summarySection"
+        android:layout_below="@id/restaurantHeader"
+        android:layout_marginTop="12dp">
+
+        <LinearLayout
+            android:id="@+id/cartItemsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/emptyCartText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Корзина пуста"
+        android:textSize="20sp"
+        android:visibility="visible" />
+
+    <!-- Блок Итога согласно макету -->
+    <RelativeLayout
+        android:id="@+id/summarySection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/checkoutButton"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_summary"
+        android:padding="20dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/totalOrderPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="serif"
+            android:text="Сумма заказа 0 ₽"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/plusSymbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/totalOrderPrice"
+            android:layout_centerHorizontal="true"
+            android:text="+"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/deliveryPriceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/plusSymbol"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="serif"
+            android:text="Доставка 300 ₽"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <View
+            android:id="@+id/dividerLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/deliveryPriceLabel"
+            android:layout_marginTop="15dp"
+            android:background="#897C7C" />
+
+        <TextView
+            android:id="@+id/itogLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dividerLine"
+            android:layout_marginTop="15dp"
+            android:fontFamily="serif"
+            android:text="Итог"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/finalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/dividerLine"
+            android:layout_marginTop="15dp"
+            android:fontFamily="serif"
+            android:text="0 ₽"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/checkoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_above="@+id/bottomNav"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/button_red_bg"
+        android:fontFamily="serif"
+        android:text="К оформлению"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_nav_bg">
+        <ImageView android:id="@+id/homeButton" android:layout_width="36dp" android:layout_height="33dp" android:layout_alignParentStart="true" android:layout_centerVertical="true" android:layout_marginStart="33dp" android:src="@drawable/home" app:tint="#C04C4C" android:contentDescription="@null" />
+        <ImageView android:id="@+id/cartButton" android:layout_width="36dp" android:layout_height="33dp" android:layout_centerInParent="true" android:src="@drawable/cart" app:tint="#C04C4C" android:contentDescription="@null" />
+        <ImageView android:id="@+id/profileButton" android:layout_width="36dp" android:layout_height="33dp" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:layout_marginEnd="33dp" android:src="@drawable/profile" app:tint="#C04C4C" android:contentDescription="@null" />
+    </RelativeLayout>
+
+</RelativeLayout>

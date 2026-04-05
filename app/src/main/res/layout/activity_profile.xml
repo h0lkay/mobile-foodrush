@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F0F5">
+
+    <!-- Заголовок: Профиль -->
+    <TextView
+        android:id="@+id/profileTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp"
+        android:fontFamily="serif"
+        android:text="Профиль"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomActionsSection"
+        android:layout_below="@id/profileTitle"
+        android:layout_marginTop="20dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="22dp"
+            android:paddingBottom="20dp">
+
+            <!-- Телефон -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_profile_field"
+                android:paddingHorizontal="18dp">
+
+                <TextView
+                    android:id="@+id/phoneLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="serif"
+                    android:text="Телефон"
+                    android:textColor="#897C7C"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/phoneLabel"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="serif"
+                    android:text="+7 (999) 999-99-99"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- Имя -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_profile_field"
+                android:paddingHorizontal="18dp">
+
+                <TextView
+                    android:id="@+id/nameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="serif"
+                    android:text="Имя"
+                    android:textColor="#897C7C"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/nameLabel"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="serif"
+                    android:text="Дмитрий"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- Email -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_profile_field"
+                android:paddingHorizontal="18dp">
+
+                <TextView
+                    android:id="@+id/emailLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="serif"
+                    android:text="Email"
+                    android:textColor="#897C7C"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/emailLabel"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="serif"
+                    android:text="email@gmail.com"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- Пол -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_profile_field"
+                android:paddingHorizontal="18dp">
+
+                <TextView
+                    android:id="@+id/genderLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="serif"
+                    android:text="Пол"
+                    android:textColor="#897C7C"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/genderLabel"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="serif"
+                    android:text="мужской"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- День рождения -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_profile_field"
+                android:paddingHorizontal="18dp">
+
+                <TextView
+                    android:id="@+id/birthdayLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="serif"
+                    android:text="День рождения"
+                    android:textColor="#897C7C"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/birthdayLabel"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="serif"
+                    android:text="01.01.2001"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Buttons and Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomActionsSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <!-- Сохранить -->
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="378dp"
+                android:layout_height="44dp"
+                android:background="@drawable/button_red_bg"
+                android:fontFamily="serif"
+                android:text="Сохранить"
+                android:textAllCaps="false"
+                android:textColor="#F4F0F5"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Удалить профиль -->
+            <TextView
+                android:id="@+id/deleteProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="serif"
+                android:text="Удалить профиль"
+                android:textColor="#C04C4C"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Bottom Navigation Bar -->
+        <RelativeLayout
+            android:id="@+id/bottomNav"
+            android:layout_width="390dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/bottom_nav_bg">
+
+            <ImageView
+                android:id="@+id/homeButton"
+                android:layout_width="36dp"
+                android:layout_height="33dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="33dp"
+                android:src="@drawable/home"
+                app:tint="#C04C4C"
+                android:contentDescription="@null" />
+
+            <ImageView
+                android:id="@+id/cartButton"
+                android:layout_width="36dp"
+                android:layout_height="33dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/cart"
+                app:tint="#C04C4C"
+                android:contentDescription="@null" />
+
+            <ImageView
+                android:id="@+id/profileButton"
+                android:layout_width="36dp"
+                android:layout_height="33dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="33dp"
+                android:src="@drawable/profile"
+                app:tint="#C04C4C"
+                android:contentDescription="@null" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

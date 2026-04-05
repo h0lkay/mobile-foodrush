@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B7B2B9">
+
+    <!-- Background content (Blurred simulation) -->
+    <TextView
+        android:id="@+id/bgDeliveryAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp"
+        android:fontFamily="serif"
+        android:text="@string/krasnoyarsk_address"
+        android:textColor="#4D000000"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="232dp"
+        android:layout_height="3dp"
+        android:layout_below="@id/bgDeliveryAddress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        android:alpha="0.3"
+        android:background="#C04C4C" />
+
+    <!-- Dim overlay -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#20000000" />
+
+    <!-- Main Card Container -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="111dp"
+        android:background="@drawable/card_background_rounded_large">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomBar"
+            android:paddingBottom="20dp"
+            android:clipToPadding="false">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Chicken Burger Image -->
+                <!-- The image in CSS is at top 88px, card at 111px. 111-88 = 23px offset -->
+                <ImageView
+                    android:id="@+id/burgerImage"
+                    android:layout_width="377dp"
+                    android:layout_height="377dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-23dp"
+                    android:src="@drawable/chickenburger_food"
+                    android:contentDescription="@null" />
+
+                <!-- Nutrition Section -->
+                <TextView
+                    android:id="@+id/nutritionHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/burgerImage"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="serif"
+                    android:text="На 100 г"
+                    android:textColor="#897C7C"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/nutritionValues"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/nutritionHeader"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:text="275\nккал"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="serif"
+                        android:text="11г\nбелки"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="serif"
+                        android:text="17г\nжиры"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="serif"
+                        android:text="19г\nуглеводы"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- Add Extra Section -->
+                <TextView
+                    android:id="@+id/addMeatLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/nutritionValues"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="serif"
+                    android:text="Добавить котлету"
+                    android:textColor="#897C7C"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:id="@+id/meatOption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/addMeatLabel"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginTop="14dp">
+
+                    <View
+                        android:id="@+id/meatDot"
+                        android:layout_width="14dp"
+                        android:layout_height="16dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/circle_grey" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="6dp"
+                        android:layout_toEndOf="@id/meatDot"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:text="Куриная котлета"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="serif"
+                            android:text="+ 150,99 ₽"
+                            android:textColor="#897C7C"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/addSauceLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/meatOption"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="serif"
+                    android:text="Добавить соус"
+                    android:textColor="#897C7C"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:id="@+id/sauceOption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/addSauceLabel"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="40dp">
+
+                    <View
+                        android:id="@+id/sauceDot"
+                        android:layout_width="14dp"
+                        android:layout_height="16dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/circle_grey" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="6dp"
+                        android:layout_toEndOf="@id/sauceDot"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:text="Бургерный соус"
+                            android:textColor="#000000"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="serif"
+                            android:text="+ 50,99 ₽"
+                            android:textColor="#897C7C"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <!-- Close Button -->
+        <ImageView
+            android:id="@+id/closeButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/circle_white"
+            android:padding="10dp"
+            android:src="@drawable/close"
+            android:contentDescription="@null" />
+
+        <!-- Bottom Bar -->
+        <RelativeLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="119dp"
+            android:layout_alignParentBottom="true"
+            android:background="#F4F0F5"
+            android:elevation="8dp"
+            android:paddingHorizontal="10dp">
+
+            <!-- Shadow/Border simulation -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#20897C7C" />
+
+            <TextView
+                android:id="@+id/foodNameBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="serif"
+                android:text="Чикенбургер 137г"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="14dp"
+                android:fontFamily="serif"
+                android:text="119,99 ₽"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addToCartButton"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/button_red_bg"
+                android:fontFamily="serif"
+                android:text="Добавить в корзину"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

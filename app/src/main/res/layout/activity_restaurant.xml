@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F0F5">
+
+    <TextView
+        android:id="@+id/deliveryAddressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:fontFamily="serif"
+        android:text="@string/krasnoyarsk_address"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <View
+        android:id="@+id/addressUnderline"
+        android:layout_width="232dp"
+        android:layout_height="3dp"
+        android:layout_below="@id/deliveryAddressText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        android:background="#C04C4C" />
+
+    <RelativeLayout
+        android:id="@+id/searchBar"
+        android:layout_width="391dp"
+        android:layout_height="52dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="116dp"
+        android:background="@drawable/search_bar_bg"
+        android:paddingStart="15dp">
+        <ImageView android:id="@+id/searchIcon" android:layout_width="28dp" android:layout_height="27dp" android:layout_centerVertical="true" android:src="@drawable/search" android:contentDescription="@null" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginStart="11dp" android:layout_toEndOf="@id/searchIcon" android:fontFamily="serif" android:text="@string/find_restaurant_or_dish" android:textColor="#897C7C" android:textSize="18sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/restaurantTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchBar"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="17dp"
+        android:fontFamily="serif"
+        android:text="@string/mister_burger"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/restaurantDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/restaurantTitle"
+        android:layout_marginStart="22dp"
+        android:fontFamily="serif"
+        android:text="Фастфуд, бургеры, американская."
+        android:textColor="#897C7C"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/infoLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/restaurantDesc"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="24dp" android:background="@drawable/chip_white_bg" android:gravity="center_vertical" android:paddingHorizontal="10dp">
+            <ImageView android:layout_width="15dp" android:layout_height="15dp" android:src="@drawable/black_star" app:tint="#000000" android:contentDescription="@null" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" android:fontFamily="serif" android:text="4.8 · 200 оценок" android:textColor="#000000" android:textSize="12sp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="24dp" android:layout_marginStart="10dp" android:background="@drawable/chip_white_bg" android:gravity="center_vertical" android:paddingHorizontal="10dp">
+            <ImageView android:layout_width="17dp" android:layout_height="17dp" android:src="@drawable/delivery_icon" android:contentDescription="@null" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" android:fontFamily="serif" android:text="30-35 мин" android:textColor="#000000" android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menuTabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/infoLayout"
+        android:layout_marginTop="15dp"
+        android:paddingHorizontal="22dp"
+        android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.5" android:text="Выбор пользователей" android:textColor="#000000" android:textSize="11sp" android:fontFamily="serif" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Говядина" android:textColor="#897C7C" android:textSize="11sp" android:fontFamily="serif" android:gravity="center" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Курица" android:textColor="#897C7C" android:textSize="11sp" android:fontFamily="serif" android:gravity="center" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Закуски" android:textColor="#897C7C" android:textSize="11sp" android:fontFamily="serif" android:gravity="center" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Напитки" android:textColor="#897C7C" android:textSize="11sp" android:fontFamily="serif" android:gravity="end" />
+        </LinearLayout>
+        <View android:layout_width="125dp" android:layout_height="2dp" android:layout_marginTop="8dp" android:background="#000000" />
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#897C7C" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/selectionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menuTabs"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="serif"
+        android:text="Выбор пользователей" android:textColor="#000000" android:textSize="20sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/selectionTitle"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="80dp">
+        <GridLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:columnCount="3" android:paddingHorizontal="14dp" android:useDefaultMargins="true">
+
+            <LinearLayout android:id="@+id/foodItemGumburger" android:orientation="vertical" android:layout_width="120dp" android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="120dp" android:layout_height="120dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/gumburger" android:scaleType="centerCrop" android:background="@drawable/card_background_rounded" android:contentDescription="@null" />
+                    <ImageView android:id="@+id/addGumburger" android:layout_width="28dp" android:layout_height="29dp" android:layout_gravity="bottom|end" android:layout_margin="5dp" android:src="@drawable/plus" android:background="@drawable/circle_white" app:tint="#000000" android:contentDescription="@null" android:clickable="true" android:focusable="true"/>
+                </FrameLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="99,99 ₽\nГамбургер\n108 г, 248 ккал" android:textSize="12sp" android:textColor="#000000" android:fontFamily="serif" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/foodItemFishburger" android:orientation="vertical" android:layout_width="120dp" android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="120dp" android:layout_height="120dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/fishburger" android:scaleType="centerCrop" android:background="@drawable/card_background_rounded" android:contentDescription="@null" />
+                    <ImageView android:id="@+id/addFishburger" android:layout_width="28dp" android:layout_height="29dp" android:layout_gravity="bottom|end" android:layout_margin="5dp" android:src="@drawable/plus" android:background="@drawable/circle_white" app:tint="#000000" android:contentDescription="@null" android:clickable="true" android:focusable="true"/>
+                </FrameLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="209,99 ₽\nФиш Бургер\n168 г, 401 ккал" android:textSize="12sp" android:textColor="#000000" android:fontFamily="serif" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/foodItemCheeseburger" android:orientation="vertical" android:layout_width="120dp" android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="120dp" android:layout_height="120dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/cheeseburger" android:scaleType="centerCrop" android:background="@drawable/card_background_rounded" android:contentDescription="@null" />
+                    <ImageView android:id="@+id/addCheeseburger" android:layout_width="28dp" android:layout_height="29dp" android:layout_gravity="bottom|end" android:layout_margin="5dp" android:src="@drawable/plus" android:background="@drawable/circle_white" app:tint="#000000" android:contentDescription="@null" android:clickable="true" android:focusable="true"/>
+                </FrameLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="109,99 ₽\nЧизбургер\n114 г, 340 ккал" android:textSize="12sp" android:textColor="#000000" android:fontFamily="serif" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/foodItemChicken" android:orientation="vertical" android:layout_width="120dp" android:layout_marginTop="20dp" android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="120dp" android:layout_height="120dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/chickenburger" android:scaleType="centerCrop" android:background="@drawable/card_background_rounded" android:contentDescription="@null" />
+                    <ImageView android:id="@+id/addChickenburger" android:layout_width="28dp" android:layout_height="29dp" android:layout_gravity="bottom|end" android:layout_margin="5dp" android:src="@drawable/plus" android:background="@drawable/circle_white" app:tint="#000000" android:contentDescription="@null" android:clickable="true" android:focusable="true"/>
+                </FrameLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="119,99 ₽\nЧикенбургер\n137 г, 380 ккал" android:textSize="12sp" android:textColor="#000000" android:fontFamily="serif" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/foodItemFries" android:orientation="vertical" android:layout_width="120dp" android:layout_marginTop="20dp" android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="120dp" android:layout_height="120dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/fries" android:scaleType="centerCrop" android:background="@drawable/card_background_rounded" android:contentDescription="@null" />
+                    <ImageView android:id="@+id/addFries" android:layout_width="28dp" android:layout_height="29dp" android:layout_gravity="bottom|end" android:layout_margin="5dp" android:src="@drawable/plus" android:background="@drawable/circle_white" app:tint="#000000" android:contentDescription="@null" android:clickable="true" android:focusable="true"/>
+                </FrameLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="159,99 ₽\nКартофель фри\n100 г, 200 ккал" android:textSize="12sp" android:textColor="#000000" android:fontFamily="serif" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/foodItemNuggets" android:orientation="vertical" android:layout_width="120dp" android:layout_marginTop="20dp" android:clickable="true" android:focusable="true">
+                <FrameLayout android:layout_width="120dp" android:layout_height="120dp">
+                    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/nuggets" android:scaleType="centerCrop" android:background="@drawable/card_background_rounded" android:contentDescription="@null" />
+                    <ImageView android:id="@+id/addNuggets" android:layout_width="28dp" android:layout_height="29dp" android:layout_gravity="bottom|end" android:layout_margin="5dp" android:src="@drawable/plus" android:background="@drawable/circle_white" app:tint="#000000" android:contentDescription="@null" android:clickable="true" android:focusable="true"/>
+                </FrameLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="209,99 ₽\nНаггетсы\n124 г, 360 ккал" android:textSize="12sp" android:textColor="#000000" android:fontFamily="serif" />
+            </LinearLayout>
+        </GridLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_nav_bg">
+        <ImageView android:id="@+id/homeButton" android:layout_width="36dp" android:layout_height="33dp" android:layout_alignParentStart="true" android:layout_centerVertical="true" android:layout_marginStart="33dp" android:src="@drawable/home" app:tint="#C04C4C" android:contentDescription="@null" />
+        <ImageView android:id="@+id/cartButton" android:layout_width="36dp" android:layout_height="33dp" android:layout_centerInParent="true" android:src="@drawable/cart" app:tint="#C04C4C" android:contentDescription="@null" />
+        <ImageView android:id="@+id/profileButton" android:layout_width="36dp" android:layout_height="33dp" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:layout_marginEnd="33dp" android:src="@drawable/profile" app:tint="#C04C4C" android:contentDescription="@null" />
+    </RelativeLayout>
+
+</RelativeLayout>
