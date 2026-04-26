@@ -16,6 +16,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        // Pass API Key from gradle.properties to BuildConfig
+        val weatherApiKey: String = project.findProperty("WEATHER_API_KEY") as? String ?: ""
+        buildConfigField("String", "WEATHER_API_KEY", "\"$weatherApiKey\"")
     }
 
     buildTypes {
@@ -31,12 +35,13 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
     buildFeatures {
         compose = true
         viewBinding = true
-    }
-    kotlinOptions {
-        jvmTarget = "17"
+        buildConfig = true
     }
 }
 
@@ -51,6 +56,22 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    
+    // OSM Maps
+    implementation("org.osmdroid:osmdroid-android:6.1.18")
+
+    // Retrofit & OkHttp
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    // Image Loading (Coil)
+    implementation("io.coil-kt:coil:2.6.0")
+    
+    // Lifecycle ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
+    implementation("androidx.activity:activity-ktx:1.9.3")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

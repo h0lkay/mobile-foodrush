@@ -6,7 +6,16 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 // Модели данных
-data class Address(val id: Int, val street: String, val city: String, val state: String, val zip: String)
+data class Address(
+    val id: Int,
+    val street: String,
+    val city: String,
+    val state: String,
+    val zip: String,
+    val lat: Double = 0.0,
+    val lon: Double = 0.0
+)
+
 data class CartItem(
     val id: Int,
     val foodName: String,
@@ -20,7 +29,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     companion object {
         private const val DATABASE_NAME = "AppDatabase.db"
-        private const val DATABASE_VERSION = 3
+        private const val DATABASE_VERSION = 4 // Увеличили версию
 
         private const val TABLE_ADDRESSES = "addresses"
         private const val KEY_ID = "id"
@@ -28,6 +37,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val KEY_CITY = "city"
         private const val KEY_STATE = "state"
         private const val KEY_ZIP = "zip"
+        private const val KEY_LAT = "lat"
+        private const val KEY_LON = "lon"
 
         private const val TABLE_CART = "cart"
         private const val KEY_CART_ID = "id"
@@ -44,7 +55,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 + KEY_STREET + " TEXT,"
                 + KEY_CITY + " TEXT,"
                 + KEY_STATE + " TEXT,"
-                + KEY_ZIP + " TEXT" + ")")
+                + KEY_ZIP + " TEXT,"
+                + KEY_LAT + " REAL,"
+                + KEY_LON + " REAL" + ")")
         db?.execSQL(createAddressTable)
 
         val createCartTable = ("CREATE TABLE " + TABLE_CART + "("
@@ -58,19 +71,22 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db?.execSQL("DROP TABLE IF EXISTS $TABLE_ADDRESSES")
-        db?.execSQL("DROP TABLE IF EXISTS $TABLE_CART")
-        onCreate(db)
+        if (oldVersion < 4) {
+            db?.execSQL("ALTER TABLE $TABLE_ADDRESSES ADD COLUMN $KEY_LAT REAL DEFAULT 0.0")
+            db?.execSQL("ALTER TABLE $TABLE_ADDRESSES ADD COLUMN $KEY_LON REAL DEFAULT 0.0")
+        }
     }
 
     // --- CRUD для АДРЕСОВ ---
-    fun addAddress(street: String, city: String, state: String, zip: String): Long {
+    fun addAddress(street: String, city: String, state: String, zip: String, lat: Double = 0.0, lon: Double = 0.0): Long {
         val db = this.writableDatabase
         val values = ContentValues().apply {
             put(KEY_STREET, street)
             put(KEY_CITY, city)
             put(KEY_STATE, state)
             put(KEY_ZIP, zip)
+            put(KEY_LAT, lat)
+            put(KEY_LON, lon)
         }
         return db.insert(TABLE_ADDRESSES, null, values).also { db.close() }
     }
@@ -86,7 +102,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                     cursor.getString(cursor.getColumnIndexOrThrow(KEY_STREET)),
                     cursor.getString(cursor.getColumnIndexOrThrow(KEY_CITY)),
                     cursor.getString(cursor.getColumnIndexOrThrow(KEY_STATE)),
-                    cursor.getString(cursor.getColumnIndexOrThrow(KEY_ZIP))
+                    cursor.getString(cursor.getColumnIndexOrThrow(KEY_ZIP)),
+                    cursor.getDouble(cursor.getColumnIndexOrThrow(KEY_LAT)),
+                    cursor.getDouble(cursor.getColumnIndexOrThrow(KEY_LON))
                 ))
             } while (cursor.moveToNext())
         }
@@ -99,18 +117,13 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return db.delete(TABLE_ADDRESSES, "$KEY_ID=?", arrayOf(id.toString())).also { db.close() }
     }
 
-    // --- CRUD для КОРЗИНЫ (С объединением дубликатов) ---
+    // --- CRUD для КОРЗИНЫ ---
     fun addToCart(name: String, price: String, quantity: Int, weight: String, imageRes: Int): Long {
         val db = this.writableDatabase
-        
-        // Нормализуем название для поиска (убираем вес, если он в названии)
         val normalizedName = name.split(" ").firstOrNull() ?: name
-
-        // Проверяем, есть ли уже такой товар
         val cursor = db.rawQuery("SELECT $KEY_CART_ID, $KEY_QUANTITY FROM $TABLE_CART WHERE $KEY_FOOD_NAME LIKE ?", arrayOf("$normalizedName%"))
         
         return if (cursor.moveToFirst()) {
-            // Товар найден -> UPDATE
             val id = cursor.getInt(0)
             val currentQty = cursor.getInt(1)
             val values = ContentValues().apply {
@@ -121,10 +134,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 db.close()
             }
         } else {
-            // Товара нет -> INSERT
             cursor.close()
             val values = ContentValues().apply {
-                put(KEY_FOOD_NAME, normalizedName) // Сохраняем чистое название
+                put(KEY_FOOD_NAME, normalizedName)
                 put(KEY_PRICE, price)
                 put(KEY_QUANTITY, quantity)
                 put(KEY_WEIGHT, weight)

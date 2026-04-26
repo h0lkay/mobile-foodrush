@@ -5,14 +5,11 @@
     android:layout_height="match_parent"
     android:background="#F4F0F5">
 
-    <!-- Карта на заднем плане -->
-    <ImageView
-        android:id="@+id/fullMap"
+    <!-- Карта на весь экран -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/map"
-        android:contentDescription="@null" />
+        android:layout_height="match_parent" />
 
     <!-- Кнопка закрытия -->
     <ImageView
@@ -28,7 +25,7 @@
         android:elevation="4dp"
         android:contentDescription="@null" />
 
-    <!-- Белая шторка с адресами -->
+    <!-- Белая шторка с адресами (максимально компактная) -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,11 +47,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/handle"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="serif"
             android:text="Мои адреса"
             android:textColor="#000000"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -66,21 +63,22 @@
             android:layout_marginEnd="25dp"
             android:background="@drawable/background_rounded"
             android:backgroundTint="#D9D9D9"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="8dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
             android:text="+ Новый адрес"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:clickable="true"
             android:focusable="true"/>
 
+        <!-- Уменьшили высоту до 180dp для большей видимости карты -->
         <ScrollView
             android:id="@+id/addressScroll"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="220dp"
             android:layout_below="@id/title"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:paddingHorizontal="25dp">
 
             <LinearLayout
@@ -93,17 +91,17 @@
         <Button
             android:id="@+id/btnDeliverHere"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="48dp"
             android:layout_below="@id/addressScroll"
             android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/button_red_bg"
             android:fontFamily="serif"
             android:text="Доставить сюда"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
